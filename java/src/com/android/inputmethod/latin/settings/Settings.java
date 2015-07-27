@@ -30,7 +30,6 @@ import com.android.inputmethod.latin.AudioAndHapticFeedbackManager;
 import com.android.inputmethod.latin.InputAttributes;
 import com.android.inputmethod.latin.R;
 import com.android.inputmethod.latin.utils.AdditionalSubtypeUtils;
-import com.android.inputmethod.latin.utils.JniUtils;
 import com.android.inputmethod.latin.utils.ResourceUtils;
 import com.android.inputmethod.latin.utils.RunInLocale;
 import com.android.inputmethod.latin.utils.StringUtils;
@@ -235,9 +234,6 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
     }
 
     public static boolean readFromBuildConfigIfGestureInputEnabled(final Resources res) {
-        if (!JniUtils.mHaveGestureLib) {
-            return false;
-        }
         return res.getBoolean(R.bool.config_gesture_input_enabled_by_build_config);
     }
 
